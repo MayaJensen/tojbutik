@@ -268,3 +268,64 @@ hr {
   font-weight: 100;
   color: #797979;
 }
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .nav a {
+    margin-left: 15px;
+    font-size: 13px;
+  }
+
+  .hero {
+    height: 50vh;
+  }
+
+  h2 {
+    padding: 0;
+  }
+
+  .bigcard {
+    padding: 50px 70px;
+  }
+
+  .newsGallery {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0;
+  }
+
+  .productlist {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0;
+  }
+
+  .categories {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .cat {
+    max-height: 220px;
+  }
+
+  .product-page {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 30px 20px;
+  }
+
+  .product-images img {
+    height: 420px;
+  }
+
+  .back {
+    font-size: 1.5rem;
+    padding: 15px 20px;
+  }
+}
