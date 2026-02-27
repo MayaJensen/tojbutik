@@ -120,6 +120,13 @@ article {
   gap: 1rem;
   padding: 0 60px;
 }
+.categories a {
+  background-color: #c8b79a;
+  padding: 50px 60px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
 
 .cat {
   position: relative;
