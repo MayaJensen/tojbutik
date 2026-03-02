@@ -12,7 +12,7 @@ function getCat() {
   function showData(data) {
     console.log(data);
     data.forEach((kategori) => {
-      container.innerHTML += `<a class="cat" href="productlist.html">${kategori.category}</a>`;
+      container.innerHTML += `<a class="cat" href="productlist.html?category=${kategori.category}">${kategori.category}</a>`;
     });
   }
 }
