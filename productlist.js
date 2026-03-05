@@ -6,16 +6,21 @@ const nameContainer = document.querySelector(".catName");
 const container = document.querySelector(".productlist");
 
 document
-  .querySelectorAll("button")
+  .querySelectorAll("#sorter button")
+  .forEach((knap) => knap.addEventListener("click", sorter));
+
+document
+  .querySelectorAll(".filter button")
   .forEach((knap) => knap.addEventListener("click", filter));
 
 let allData;
+let udsnit;
 
 function getData() {
   fetch(endpoint)
     .then((res) => res.json())
     .then((data) => {
-      allData = data;
+      allData = udsnit = data;
       showProducts(allData);
     });
 }
@@ -26,7 +31,7 @@ function filter(e) {
   if (valgt === "All") {
     showProducts(allData);
   } else {
-    const udsnit = allData.filter((product) => product.gender === valgt);
+    udsnit = allData.filter((product) => product.gender === valgt);
     showProducts(udsnit);
   }
 }
@@ -43,6 +48,11 @@ function getPro() {
     .then(showProducts);
 }
 function showProducts(data) {
+  if (data.length === 0) {
+    container.innerHTML = `<div class="noProducts">Ingen produkter fundet</div>`;
+    return;
+  }
+
   let markup = "";
 
   data.forEach((product) => {
@@ -71,3 +81,47 @@ function showProducts(data) {
   container.innerHTML = markup;
 }
 getPro();
+
+function sorter(event) {
+  if (event.target.dataset.price) {
+    const dir = event.target.dataset.price;
+
+    if (dir == "up") {
+      udsnit.sort((a, b) => a.price - b.price);
+    } else {
+      udsnit.sort((a, b) => b.price - a.price);
+    }
+  } else {
+    const dir = event.target.dataset.text;
+
+    if (dir == "az") {
+      udsnit.sort((a, b) =>
+        a.productdisplayname.localeCompare(b.productdisplayname, "da"),
+      );
+    } else {
+      udsnit.sort((a, b) =>
+        b.productdisplayname.localeCompare(a.productdisplayname, "da"),
+      );
+    }
+  }
+
+  showProducts(udsnit);
+}
+
+const filterButtons = document.querySelectorAll(".filter button");
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
+  });
+});
+
+const sortButtons = document.querySelectorAll("#sorter button");
+
+sortButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    sortButtons.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
+  });
+});
