@@ -441,4 +441,20 @@ button:hover {
   .catName {
     font-size: 3.8rem;
   }
+  #sorter button {
+    background-color: #7f7159;
+    padding: 8px 18px;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: white;
+    border-radius: 999px;
+    cursor: pointer;
+    border: none;
+    display: block;
+    margin: 0 auto;
+  }
+  #sorter button:hover {
+    background-color: #b3a489;
+  }
 }
