@@ -5,9 +5,19 @@
   font-family: Arial, sans-serif;
 }
 
+.pinyon-script-regular {
+  font-family: "Pinyon Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 h2 {
   margin-bottom: 20px;
-  padding: 0 60px;
+  padding: 60px 30px 0 30px;
+}
+h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
 /* Top bar */
@@ -65,13 +75,11 @@ nav a:hover {
   height: 100%;
   object-fit: cover;
 }
-.bigcard {
-  padding: 20px 40px;
-}
+
 .newsGallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8rem;
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 60px;
@@ -80,10 +88,10 @@ nav a:hover {
 .productlist {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5rem;
-  max-width: 1200px;
+  gap: 0.5rem;
+  max-width: 1500px;
   margin: 30px auto;
-  padding: 0 20px;
+  padding: 10px 10px;
 }
 .productlist img {
   width: 100%;
@@ -119,14 +127,18 @@ article {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
   gap: 1rem;
-  padding: 0 60px;
+  padding: 0 20px 200px 20px;
 }
 .categories a {
   background-color: #c8b79a;
-  padding: 50px 60px;
-  font-size: 1.5rem;
-  font-weight: 700;
+  padding: 30px 20px;
+  font-size: 2rem;
+  font-weight: 100;
   color: white;
+  border-radius: 80px;
+}
+.categories a:hover {
+  background-color: #b3a489;
 }
 
 .cat {
@@ -135,7 +147,7 @@ article {
   border: 1px solid #999;
   text-decoration: none;
   color: black;
-  max-height: 300px;
+  max-height: 600px;
 }
 
 .cat img {
@@ -153,10 +165,10 @@ article {
 }
 
 .badge {
-  top: 25px;
+  top: 10px;
   left: 2px;
   max-width: 75px;
-  position: relative;
+  position: absolute;
   padding: 6px 14px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -184,14 +196,12 @@ article {
 .item {
   text-decoration: none;
   color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  min-height: 500px;
 }
-
-.back {
-  display: inline-block;
-  padding: 20px 30px;
-  text-decoration: none;
-  font-size: 2rem;
-  color: #000;
+.item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .product-page {
@@ -212,7 +222,6 @@ article {
   width: 100%;
   object-fit: cover;
   object-position: center bottom;
-  height: 560px;
 }
 
 .product-info h1 {
@@ -227,6 +236,11 @@ article {
 
 .stock {
   color: green;
+  margin-bottom: 20px;
+}
+
+.nostock {
+  color: red;
   margin-bottom: 20px;
 }
 
@@ -267,7 +281,7 @@ hr {
 
 .old-price {
   text-decoration: line-through;
-  color: #c75757;
+  color: #000000;
   margin-right: 8px;
 }
 
@@ -278,18 +292,59 @@ hr {
 }
 .new-price {
   color: #000000;
-  font-weight: 600;
-  background-color: rgb(234, 136, 66);
-  padding: 10px;
+  font-weight: 300;
+  font-size: 0.8rem;
+  background-color: #b3a489;
+  padding: 6px 15px;
   display: block;
   width: fit-content;
   margin-left: 80px;
+  border-radius: 999px;
 
   position: absolute;
   top: 10px;
   right: 10px;
 }
 
+.final-price {
+  color: #000000;
+}
+.filter {
+  display: flex;
+  justify-content: center;
+  padding-left: 400px;
+  padding-right: 400px;
+  margin: 30px 0;
+  gap: 10px;
+}
+
+.filter button {
+  background-color: #c8b79a;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  border-radius: 999px;
+  cursor: pointer;
+  border: none;
+  display: block;
+  margin: 0 auto;
+}
+button:hover {
+  background-color: #b3a489;
+}
+
+.catName {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0 0 0;
+  left: 1rem;
+  font-weight: 400;
+  font-size: 6rem;
+  font-family:
+    Pinyon Script,
+    cursive;
+}
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -314,7 +369,7 @@ hr {
   }
 
   .bigcard {
-    padding: 50px 70px;
+    padding: 50px 10px;
   }
 
   .newsGallery {
@@ -324,18 +379,19 @@ hr {
   }
 
   .productlist {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
     padding: 0;
   }
 
   .categories {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+
     padding: 0;
   }
-
-  .cat {
-    max-height: 220px;
+  .categories a {
+    padding: 10px 10px;
+    font-size: 1.5rem;
   }
 
   .product-page {
@@ -344,12 +400,17 @@ hr {
     padding: 30px 20px;
   }
 
-  .product-images img {
-    height: 420px;
-  }
-
   .back {
     font-size: 1.5rem;
     padding: 15px 20px;
+  }
+
+  .filter {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .item {
+    min-height: 300px;
   }
 }

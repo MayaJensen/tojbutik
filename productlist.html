@@ -6,12 +6,18 @@
     <title>Forside</title>
     <link rel="stylesheet" href="style.css" />
     <script src="productlist.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="top-bar">Fri fragt ved køb over 500 DKK</div>
     <header class="header">
       <a href="index.html"
-        ><img src="IMAGES/ARKIV.png" alt="ARKIV logo" class="logo"
+        ><img src="IMAGES/ARKIV.svg" alt="ARKIV logo" class="logo"
       /></a>
 
       <nav class="nav">
@@ -21,15 +27,16 @@
         <a href="#">Favoritter</a>
       </nav>
     </header>
-    <button>All</button>
-    <button>Unisex</button>
-    <button>Women</button>
-    <button>Men</button>
-    <main>
-      <a href="index.html" class="back">⬅</a>
 
+    <main>
       <section class="firstwrapper">
         <h1><span class="catName"></span></h1>
+        <section class="filter">
+          <button>All</button>
+          <button>Unisex</button>
+          <button>Women</button>
+          <button>Men</button>
+        </section>
       </section>
 
       <section class="bigcard">
