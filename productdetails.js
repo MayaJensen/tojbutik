@@ -22,11 +22,17 @@ function showData(product) {
         </div>
 
         <div class="product-info">
-          <h4>Nike</h4>
-          <h1>Nike cap</h1>
+          <h4>${product.brandname}</h4>
+          <h1>${product.productdisplayname}</h1>
 
-          <p class="price">250 dkk</p>
-          <p class="stock">På lager</p>
+         ${product.discount ? `<span class="old-price">${product.price} kr.</span>` : `${product.price} kr.`}
+            ${product.discount ? `<span class="new-price">${product.discount}%</span>` : ""}
+            ${product.discount ? `<span class="final-price">${(product.price - (product.price * product.discount) / 100).toFixed(2)} kr.</span>` : ""}
+           ${product.soldout ? `<p class="nostock">Ikke på lager</p>` : `<p class="stock">På lager</p>`}
+
+             <p class="price">
+           
+          </p>
 
           <hr />
 
@@ -42,7 +48,7 @@ function showData(product) {
           <hr />
 
           <h3>Beskrivelse</h3>
-          <p>Lorem ipsum dolor sit amet...</p>
+          <p>${product.description}</p>
 
           <div class="accordion">
             <div class="row">
@@ -56,4 +62,5 @@ function showData(product) {
           </div>
         </div>`;
 }
+
 getData();
